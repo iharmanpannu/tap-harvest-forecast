@@ -103,7 +103,16 @@ def get_start(key):
     if key not in STATE:
         STATE[key] = CONFIG['start_date']
 
-    return STATE[key]
+    today = datetime.datetime.now()
+    start = datetime.datetime.strptime(STATE[key], '%Y-%m-%dT%H:%M:%SZ')
+    days_from_today = today - start
+
+    # The assignments endpoint will return an error if the start_date is too far in the past
+    if days_from_today.days < 180:
+        return start
+    else:
+        return (datetime.datetime.now() - datetime.timedelta(days=179)).strftime('%Y-%m-%dT%H:%M:%SZ')
+
 
 def get_url(endpoint):
     return BASE_URL + endpoint
@@ -141,8 +150,12 @@ def sync_endpoint(endpoint, schema, mdata, date_fields = None):
                         bookmark_properties = [REPLICATION_KEY])
 
     start = get_start(endpoint)
+    end = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+    params = {"start_date": start,
+              "end_date": end}
+
     url = get_url(endpoint)
-    data = request(url)[endpoint]
+    data = request(url, params)[endpoint]
     time_extracted = utils.now()
 
     for row in data:

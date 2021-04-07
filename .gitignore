@@ -105,3 +105,7 @@ venv.bak/
 
 # Config for script
 config.json
+.vscode
+.idea
+catalog.json
+state.json

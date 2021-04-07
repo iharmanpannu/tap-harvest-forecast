@@ -12,9 +12,11 @@ Visit the [developer tools](https://id.getharvest.com/developers) page on Harves
 
 ```json
 {
-    "start_date": "2017-04-19T13:37:30Z",
-    "account_id": "HARVEST_FORECAST_ACCOUNT_ID",
-    "access_token": "HARVEST_FORECAST_PERSONAL_ACCESSS_TOKEN"
+  "client_id": "OAUTH_CLIENT_ID",
+  "client_secret": "OAUTH_CLIENT_SECRET",
+  "refresh_token": "YOUR_OAUTH_REFRESH_TOKEN",
+  "start_date": "2017-04-19T13:37:30Z",
+  "user_agent": "tap-harvest-forecast (your.email@example.com)"
 }
 ```
 
@@ -32,36 +34,41 @@ Visit the [developer tools](https://id.getharvest.com/developers) page on Harves
 Each header denotes the table name.
 
 ### assigments
+
 - Description: Assigments of projects to users.
 - Primary key column(s): id
 - Replicated fully or incrementally _(uses a bookmark to maintain state)_: Incrementally
 - Bookmark column: `updated_at`
-- Link to API endpoint documentation: https://help.getharvest.com/forecast/faqs/faq-list/api/
+- Link to API endpoint documentation: <https://help.getharvest.com/forecast/faqs/faq-list/api/>
 
 ### clients
+
 - Description: All clients.
 - Primary key column(s): id
 - Replicated fully or incrementally _(uses a bookmark to maintain state)_: Incrementally
 - Bookmark column: `updated_at`
-- Link to API endpoint documentation: https://help.getharvest.com/forecast/faqs/faq-list/api/
+- Link to API endpoint documentation: <https://help.getharvest.com/forecast/faqs/faq-list/api/>
 
 ### milestones
+
 - Description: All milestones and their project ids.
 - Primary key column(s): id
 - Replicated fully or incrementally _(uses a bookmark to maintain state)_: Incrementally
 - Bookmark column: `updated_at`
-- Link to API endpoint documentation: https://help.getharvest.com/forecast/faqs/faq-list/api/
+- Link to API endpoint documentation: <https://help.getharvest.com/forecast/faqs/faq-list/api/>
 
 ### people
+
 - Description: All people and the details pertaining to them.
 - Primary key column(s): id
 - Replicated fully or incrementally _(uses a bookmark to maintain state)_: Incrementally
 - Bookmark column: `updated_at`
-- Link to API endpoint documentation: https://help.getharvest.com/forecast/faqs/faq-list/api/
+- Link to API endpoint documentation: <https://help.getharvest.com/forecast/faqs/faq-list/api/>
 
 ### projects
+
 - Description: All projects and the details pertaining to them.
 - Primary key column(s): id
 - Replicated fully or incrementally _(uses a bookmark to maintain state)_: Incrementally
 - Bookmark column: `updated_at`
-- Link to API endpoint documentation: https://help.getharvest.com/forecast/faqs/faq-list/api/
+- Link to API endpoint documentation: <https://help.getharvest.com/forecast/faqs/faq-list/api/>
